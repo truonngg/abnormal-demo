@@ -15,6 +15,27 @@ This application processes incident data from multiple sources (PagerDuty, logs,
 - **Evidence tracing**: See what data supports each claim in the generated draft
 - **Confidence scoring**: Get transparency into draft quality and reliability
 
+## 🌐 Live Demo
+
+The backend API is deployed and available for testing:
+
+**Backend API (Railway):**
+- **Base URL**: https://web-production-b95fd.up.railway.app
+- **Health Check**: https://web-production-b95fd.up.railway.app/health
+- **Interactive API Docs**: https://web-production-b95fd.up.railway.app/docs
+
+The API is ready to use with the OpenAI API key already configured. You can test it directly through the Swagger UI or integrate it with your own frontend.
+
+### Quick API Test
+
+Test the health endpoint:
+```bash
+curl https://web-production-b95fd.up.railway.app/health
+```
+
+Or visit the interactive API documentation to try generating drafts:
+https://web-production-b95fd.up.railway.app/docs
+
 ## 🏗️ Architecture
 
 ```
@@ -142,6 +163,28 @@ abnormal-demo/
 
 ### Running the Application
 
+#### Option 1: Use the Deployed Backend (Recommended for Reviewers)
+
+The simplest way to run the app is to use the deployed Railway backend:
+
+1. **Install frontend dependencies only:**
+   ```bash
+   cd frontend
+   pip install -r requirements.txt
+   ```
+
+2. **Start the frontend:**
+   ```bash
+   streamlit run app.py
+   ```
+
+3. **Configure the backend URL in the Streamlit sidebar:**
+   - Once the app opens in your browser, look for the sidebar (left side)
+   - Set the Backend URL to: `https://web-production-b95fd.up.railway.app`
+   - The API key is already configured on the backend!
+
+#### Option 2: Run Everything Locally
+
 You'll need two terminal windows - one for the backend and one for the frontend.
 
 **Terminal 1 - Start the Backend:**
@@ -233,11 +276,6 @@ This prototype focuses on:
 - Evidence tracing / grounding (per-claim source mappings)
 - Web-based UI
 
-🚧 **Placeholder (for future implementation):**
-- Advanced timestamp correlation
-- Sophisticated symptom extraction
-- Support additional phases in the UI (Monitoring, Resolved)
-
 ## 📝 Configuration
 
 ### Environment Variables
@@ -294,7 +332,7 @@ This prototype focuses on:
 
 ## 📚 Additional Documentation
 
-- [Product Requirements Document]([Abnormal] Take Home.md) - Detailed product vision and requirements
+- [Product Requirements Document]([Abnormal] Take Home.md) - Verbose version of PRD
 - [Take-Home Instructions](TAKEHOME_README.md) - Original assignment details
 - [Data README](data/data/README.md) - Detailed description of incident data files
 - [Status Page Examples](data/data/status_page_examples.md) - Example messages for tone/style
@@ -315,13 +353,13 @@ This prototype focuses on:
 ### Phase 2: Walk
 - Broaden to higher-severity incidents and support additional phases (Monitoring, Resolved) while maintaining evidence grounding
 - Improve signal extraction/correlation reliability via feedback loops from human edits and post-incident reviews
-- Add richer edit/refinement workflows (e.g., guided revisions without full regeneration, edits with AI)
 
 ### Phase 3: Run
 - Fully embed into incident response workflows with real-time / near real-time ingestion
 - Native integrations with incident tooling (e.g., Slack, PagerDuty) and status page publishing
 - Automated “surgical fixes” and stronger confidence controls using LLM-as-Judge + guardrails
 - Full incident communication lifecycle across all phases, with continuous improvement/analytics
+- Add richer edit/refinement workflows (e.g., guided revisions without full regeneration, edits with AI)
 
 ## 📄 License
 
