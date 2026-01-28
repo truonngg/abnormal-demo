@@ -15,19 +15,8 @@ app = FastAPI(
 )
 
 # Configure CORS to allow Streamlit frontend
-allowed_origins = [
-    "http://localhost:8501",  # Streamlit default port
-    "http://127.0.0.1:8501",
-]
-
-# Add frontend URL from environment if provided (for Railway deployment)
-if frontend_url := os.getenv("FRONTEND_URL"):
-    allowed_origins.append(frontend_url)
-
-# For demo purposes, also allow Railway's auto-generated URLs
-# Railway URLs follow pattern: https://*.up.railway.app
-if railway_url := os.getenv("RAILWAY_PUBLIC_DOMAIN"):
-    allowed_origins.append(f"https://{railway_url}")
+# For demo/take-home purposes, allow all origins (use specific origins in production)
+allowed_origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
