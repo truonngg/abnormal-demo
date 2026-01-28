@@ -1,0 +1,108 @@
+{
+  "metrics": [
+    {
+      "name": "s3_upload_success_rate",
+      "description": "Percentage of successful S3 uploads",
+      "unit": "percent",
+      "data_points": [
+        {"timestamp": "2025-01-20T10:00:00Z", "value": 99.2},
+        {"timestamp": "2025-01-20T10:15:00Z", "value": 95.1},
+        {"timestamp": "2025-01-20T10:20:00Z", "value": 13.0},
+        {"timestamp": "2025-01-20T10:30:00Z", "value": 11.5},
+        {"timestamp": "2025-01-20T10:45:00Z", "value": 15.8},
+        {"timestamp": "2025-01-20T11:00:00Z", "value": 32.4},
+        {"timestamp": "2025-01-20T11:15:00Z", "value": 48.7},
+        {"timestamp": "2025-01-20T11:30:00Z", "value": 55.0},
+        {"timestamp": "2025-01-20T11:45:00Z", "value": 85.2},
+        {"timestamp": "2025-01-20T12:00:00Z", "value": 94.8},
+        {"timestamp": "2025-01-20T12:15:00Z", "value": 98.9},
+        {"timestamp": "2025-01-20T12:30:00Z", "value": 99.1}
+      ]
+    },
+    {
+      "name": "s3_download_success_rate",
+      "description": "Percentage of successful S3 downloads",
+      "unit": "percent",
+      "data_points": [
+        {"timestamp": "2025-01-20T10:00:00Z", "value": 99.5},
+        {"timestamp": "2025-01-20T10:15:00Z", "value": 92.3},
+        {"timestamp": "2025-01-20T10:20:00Z", "value": 30.1},
+        {"timestamp": "2025-01-20T10:30:00Z", "value": 28.7},
+        {"timestamp": "2025-01-20T10:45:00Z", "value": 35.2},
+        {"timestamp": "2025-01-20T11:00:00Z", "value": 52.8},
+        {"timestamp": "2025-01-20T11:15:00Z", "value": 65.1},
+        {"timestamp": "2025-01-20T11:30:00Z", "value": 73.4},
+        {"timestamp": "2025-01-20T11:45:00Z", "value": 88.9},
+        {"timestamp": "2025-01-20T12:00:00Z", "value": 96.2},
+        {"timestamp": "2025-01-20T12:15:00Z", "value": 99.0},
+        {"timestamp": "2025-01-20T12:30:00Z", "value": 99.4}
+      ]
+    },
+    {
+      "name": "s3_request_latency_p99",
+      "description": "99th percentile latency for S3 requests",
+      "unit": "seconds",
+      "data_points": [
+        {"timestamp": "2025-01-20T10:00:00Z", "value": 0.8},
+        {"timestamp": "2025-01-20T10:15:00Z", "value": 2.1},
+        {"timestamp": "2025-01-20T10:20:00Z", "value": 28.5},
+        {"timestamp": "2025-01-20T10:30:00Z", "value": 30.0},
+        {"timestamp": "2025-01-20T10:45:00Z", "value": 25.3},
+        {"timestamp": "2025-01-20T11:00:00Z", "value": 18.7},
+        {"timestamp": "2025-01-20T11:15:00Z", "value": 12.4},
+        {"timestamp": "2025-01-20T11:30:00Z", "value": 8.2},
+        {"timestamp": "2025-01-20T11:45:00Z", "value": 3.5},
+        {"timestamp": "2025-01-20T12:00:00Z", "value": 1.8},
+        {"timestamp": "2025-01-20T12:15:00Z", "value": 1.1},
+        {"timestamp": "2025-01-20T12:30:00Z", "value": 0.9}
+      ]
+    },
+    {
+      "name": "customer_file_operation_errors",
+      "description": "Number of customer-facing file operation errors",
+      "unit": "count",
+      "data_points": [
+        {"timestamp": "2025-01-20T10:00:00Z", "value": 3},
+        {"timestamp": "2025-01-20T10:15:00Z", "value": 45},
+        {"timestamp": "2025-01-20T10:20:00Z", "value": 387},
+        {"timestamp": "2025-01-20T10:30:00Z", "value": 412},
+        {"timestamp": "2025-01-20T10:45:00Z", "value": 356},
+        {"timestamp": "2025-01-20T11:00:00Z", "value": 234},
+        {"timestamp": "2025-01-20T11:15:00Z", "value": 178},
+        {"timestamp": "2025-01-20T11:30:00Z", "value": 112},
+        {"timestamp": "2025-01-20T11:45:00Z", "value": 45},
+        {"timestamp": "2025-01-20T12:00:00Z", "value": 18},
+        {"timestamp": "2025-01-20T12:15:00Z", "value": 7},
+        {"timestamp": "2025-01-20T12:30:00Z", "value": 4}
+      ]
+    },
+    {
+      "name": "aws_s3_api_error_rate",
+      "description": "Rate of errors from AWS S3 API",
+      "unit": "errors_per_minute",
+      "data_points": [
+        {"timestamp": "2025-01-20T10:00:00Z", "value": 0.2},
+        {"timestamp": "2025-01-20T10:15:00Z", "value": 3.5},
+        {"timestamp": "2025-01-20T10:20:00Z", "value": 72.3},
+        {"timestamp": "2025-01-20T10:30:00Z", "value": 89.1},
+        {"timestamp": "2025-01-20T10:45:00Z", "value": 67.8},
+        {"timestamp": "2025-01-20T11:00:00Z", "value": 45.2},
+        {"timestamp": "2025-01-20T11:15:00Z", "value": 28.9},
+        {"timestamp": "2025-01-20T11:30:00Z", "value": 18.4},
+        {"timestamp": "2025-01-20T11:45:00Z", "value": 7.1},
+        {"timestamp": "2025-01-20T12:00:00Z", "value": 2.3},
+        {"timestamp": "2025-01-20T12:15:00Z", "value": 0.8},
+        {"timestamp": "2025-01-20T12:30:00Z", "value": 0.3}
+      ]
+    }
+  ],
+  "annotations": [
+    {"timestamp": "2025-01-20T10:15:00Z", "event": "Incident started - AWS S3 outage detected"},
+    {"timestamp": "2025-01-20T10:17:00Z", "event": "PagerDuty alert acknowledged"},
+    {"timestamp": "2025-01-20T10:30:00Z", "event": "AWS confirmed widespread S3 issues in us-west-2"},
+    {"timestamp": "2025-01-20T11:00:00Z", "event": "AWS announced mitigation in progress"},
+    {"timestamp": "2025-01-20T11:30:00Z", "event": "Error rates beginning to decrease"},
+    {"timestamp": "2025-01-20T12:00:00Z", "event": "Services returning to normal"},
+    {"timestamp": "2025-01-20T12:30:00Z", "event": "Incident resolved - AWS S3 fully operational"}
+  ]
+}

@@ -1,0 +1,31 @@
+=== Incident Context ===
+Started: January 20, 2025 around 10:15 AM Pacific Time
+Affected Service: storage-service (customer file uploads and downloads)
+
+--- Slack #incidents Thread ---
+[10:15 AM] @oncall-bot: 🚨 PagerDuty Alert PXXX456: AWS S3 Service Disruption - storage-service S3 bucket access failures > 50%
+
+[10:17 AM] @bob.sre: Acknowledged. Checking AWS status page and our S3 integration logs.
+
+[10:20 AM] @bob.sre: AWS is reporting widespread S3 outages in us-west-2. Our primary bucket is in that region.
+S3 GetObject and PutObject operations are timing out or returning 503 errors.
+
+[10:22 AM] @bob.sre: Looking at CloudWatch - we're seeing 87% failure rate on file upload attempts. Downloads are also failing for ~70% of requests.
+
+[10:25 AM] @sarah.backend: Can confirm from application logs - getting "SlowDown" and "ServiceUnavailable" errors from AWS S3 SDK.
+
+[10:30 AM] @bob.sre: This is an AWS-side issue. We have monitoring in place but can't fix their infrastructure. Will monitor AWS status page for updates.
+
+[10:45 AM] @sarah.backend: Added retry logic with exponential backoff to help once AWS recovers. Will reduce error rate when they come back online.
+
+[11:00 AM] @bob.sre: AWS updated their status page - they've identified the issue and are working on mitigation in us-west-2.
+
+[11:30 AM] @bob.sre: Seeing improvement! Failure rate dropped from 87% to 45%. AWS is making progress.
+
+[11:45 AM] @bob.sre: Failure rate now at 15%. Most requests are succeeding. Customers should start seeing normal functionality.
+
+[12:00 PM] @sarah.backend: Monitoring shows all retry attempts are succeeding now. Upload and download success rates back to 99%+.
+
+[12:30 PM] @bob.sre: AWS marked us-west-2 S3 as fully operational. Our metrics have been stable for 30 minutes. Marking as resolved.
+
+[12:35 PM] @bob.sre: For postmortem - we should consider multi-region S3 replication for critical customer data to reduce impact from regional AWS outages.

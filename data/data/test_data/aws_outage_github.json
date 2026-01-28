@@ -1,0 +1,55 @@
+{
+  "deployments": [
+    {
+      "id": "deploy-789",
+      "service": "storage-service",
+      "environment": "production",
+      "deployed_at": "2025-01-19T16:30:00Z",
+      "deployed_by": "sarah.backend@example.com",
+      "commit_sha": "a1b2c3d4",
+      "pull_request": "#15678",
+      "status": "success",
+      "changes": [
+        "Added retry logic for S3 operations",
+        "Increased S3 client timeout from 10s to 30s",
+        "Added exponential backoff for failed uploads"
+      ],
+      "notes": "Deployed 18 hours before incident - not related to outage"
+    },
+    {
+      "id": "deploy-788",
+      "service": "monitoring-alerts",
+      "environment": "production",
+      "deployed_at": "2025-01-18T14:20:00Z",
+      "deployed_by": "bob.sre@example.com",
+      "commit_sha": "e5f6g7h8",
+      "pull_request": "#15612",
+      "status": "success",
+      "changes": [
+        "Added S3 error rate alerting",
+        "Configured PagerDuty integration for storage failures"
+      ],
+      "notes": "Monitoring changes - helped detect incident quickly"
+    }
+  ],
+  "recent_changes": {
+    "storage_service": {
+      "last_deployment": "2025-01-19T16:30:00Z",
+      "days_since_deployment": 0.7,
+      "recent_prs": [
+        {
+          "number": 15678,
+          "title": "Improve S3 resilience with retry logic",
+          "merged_at": "2025-01-19T16:15:00Z",
+          "author": "sarah.backend@example.com"
+        },
+        {
+          "number": 15623,
+          "title": "Add S3 bucket versioning configuration",
+          "merged_at": "2025-01-17T10:45:00Z",
+          "author": "alice.engineer@example.com"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "log_group": "/aws/lambda/storage-service",
+  "time_range": {
+    "start": "2025-01-20T10:15:00Z",
+    "end": "2025-01-20T12:30:00Z"
+  },
+  "log_events": [
+    {
+      "timestamp": "2025-01-20T10:16:23Z",
+      "level": "ERROR",
+      "message": "S3 PutObject failed for bucket prod-customer-uploads",
+      "error": "SlowDown: Please reduce your request rate.",
+      "request_id": "req-abc-123",
+      "retry_count": 3
+    },
+    {
+      "timestamp": "2025-01-20T10:17:45Z",
+      "level": "ERROR",
+      "message": "S3 GetObject failed for bucket prod-customer-files",
+      "error": "ServiceUnavailable: Service is currently unavailable",
+      "request_id": "req-def-456",
+      "retry_count": 3
+    },
+    {
+      "timestamp": "2025-01-20T10:20:12Z",
+      "level": "ERROR",
+      "message": "File upload timeout after 30 seconds",
+      "error": "RequestTimeout: Your socket connection to the server was not read from or written to within the timeout period",
+      "bucket": "prod-customer-uploads",
+      "region": "us-west-2"
+    },
+    {
+      "timestamp": "2025-01-20T10:25:33Z",
+      "level": "WARN",
+      "message": "High S3 error rate detected",
+      "metrics": {
+        "total_requests": 1250,
+        "failed_requests": 1087,
+        "error_rate": "87%",
+        "primary_errors": ["SlowDown", "ServiceUnavailable", "RequestTimeout"]
+      }
+    },
+    {
+      "timestamp": "2025-01-20T11:30:15Z",
+      "level": "INFO",
+      "message": "S3 error rate decreasing",
+      "metrics": {
+        "total_requests": 890,
+        "failed_requests": 400,
+        "error_rate": "45%",
+        "status": "Improving"
+      }
+    },
+    {
+      "timestamp": "2025-01-20T12:00:22Z",
+      "level": "INFO",
+      "message": "S3 operations returning to normal",
+      "metrics": {
+        "total_requests": 1100,
+        "failed_requests": 165,
+        "error_rate": "15%",
+        "status": "Recovery in progress"
+      }
+    },
+    {
+      "timestamp": "2025-01-20T12:25:44Z",
+      "level": "INFO",
+      "message": "S3 operations fully restored",
+      "metrics": {
+        "total_requests": 1350,
+        "failed_requests": 14,
+        "error_rate": "1%",
+        "status": "Normal"
+      }
+    }
+  ],
+  "error_summary": {
+    "most_common_errors": [
+      {"error": "SlowDown", "count": 456},
+      {"error": "ServiceUnavailable", "count": 389},
+      {"error": "RequestTimeout", "count": 242}
+    ],
+    "affected_buckets": [
+      "prod-customer-uploads",
+      "prod-customer-files",
+      "prod-attachments"
+    ],
+    "affected_region": "us-west-2"
+  }
+}
